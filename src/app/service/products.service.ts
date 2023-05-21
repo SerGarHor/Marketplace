@@ -12,7 +12,7 @@ export class ProductsService {
   
   
   getProductsPlatzi(){
-    return this.http.get('http://api.escuelajs.co/api/v1/products')
+    return this.http.get('https://api.escuelajs.co/api/v1/products')
 
   }
 
