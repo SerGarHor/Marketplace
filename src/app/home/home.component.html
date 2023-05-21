@@ -1,0 +1,45 @@
+
+<body>
+    <header>
+        <div class="toolbar" role="banner">
+            <h1>Marketplace</h1>
+        <div class="cart-icon" (click)="navigateToComponent()">
+            <i class="material-icons">shopping_cart</i>
+            <span class="item-count">{{countProducts}}</span>
+        </div>
+    </div>
+    </header>
+
+    <app-spinner *ngIf="!isLoading"></app-spinner>
+
+    <div *ngIf="isLoading" class="search-container">
+        <h4>Buscar Producto:</h4>
+        <input title="Texto al pasar el mouse" type="text" id="search-input" placeholder="Escribe aquí..." (keyup)="applyFilter($event.target)" >
+
+        <h4>Categoría:</h4>
+        <select id="category-filter" (change)="applyFilterCategory($event.target)">
+            <option value="">Todas las categorías</option>
+            <option *ngFor="let category of categorys" [value]="category">{{category}}</option>
+          </select>
+    </div>
+
+    <div *ngIf="isLoading">
+        <h1 class="title" >Productos</h1>
+        <section *ngFor="let category of categorys" class="card"> 
+            <h2>{{category}}</h2>
+            <div class="grid-products">
+                <section *ngFor="let data of productData[category]" >
+                    <div class="product-card">
+                        <img class="product-image" [src]="changeImg(data)" alt="Imagen del producto">
+                        <h3 class="product-title">{{data.title}}</h3>
+                        <div class="price-add">
+                            <p class="product-price">$ {{data.price}}</p>
+                            <button class="add-to-cart-button" (click)="addCar(data)">+</button>
+                        </div>
+                    </div>
+                </section >
+            </div>
+            </section>
+    </div>
+
+</body>

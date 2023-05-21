@@ -1,0 +1,52 @@
+
+
+<body>
+    <header>
+        <div class="toolbar" role="banner">
+            <i class="material-icons" (click)="exit()">arrow_back</i>
+            <h1>Shopping Cart</h1>
+        </div>
+    </header>
+
+    <section *ngIf="!isLoadData" class="empty-cart"> 
+        <h2>Tu carrito está vació</h2>
+        <h2>¿Deseas realizar una compra?</h2>
+        <button (click)="exit()">¡Haz click Aqui!</button>
+    </section>
+        
+
+    <section  *ngIf="isLoadData" class="iconos">
+        <img (click)="downloadCSV()" class="product-image" src="../../assets/img/csv.png" alt="Imagen del producto">
+        <img (click)="downloadCSV()" class="product-image" src="../../assets/img/xls.png" alt="Imagen del producto">
+        <img (click)="downloadCSV()" class="product-image" src="../../assets/img/slsx.png" alt="Imagen del producto">
+    </section>
+
+    <div  *ngIf="isLoadData" class="sections">
+        <section class="list-card">
+            <div class="products" *ngFor="let product of dataNavigate">
+                <img class="product-image" [src]="changeImg(product)" alt="Imagen del producto">
+                <div>
+                    <h3>{{product.title}}</h3>
+                    <p>Cantidad: {{product.cant}}</p>
+                    <p>$ {{product.price}}</p>
+                </div>
+                <button (click)="delete(product)">Eliminar producto</button>
+            </div>
+        </section>
+    
+        <section class="value-card">
+            <div>
+                <img src="../../assets/img/products.png" alt="Productos">
+                <div class="shipment">
+                    <h2>Envio: </h2>
+                    <p>Gratis</p>
+                </div>
+                <h1>Valor Total: {{valueTotal}}</h1>
+                <h1 class="cant">Cantidad de productos: {{productTotal}}</h1>
+            </div>
+        </section>
+    
+    </div>
+    
+</body>
+

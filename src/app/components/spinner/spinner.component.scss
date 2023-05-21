@@ -1,0 +1,26 @@
+.spinner {
+    width: 9rem;
+    height: 9rem;
+    border-radius: 50%;
+    border: 0.7rem solid #1976d2;
+    border-top-color: #fff;
+    animation: spin 1s infinite linear;
+    display: block;
+    margin: 25rem auto 0 auto;
+  }
+
+  .title-spinner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }

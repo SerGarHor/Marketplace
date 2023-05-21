@@ -1,0 +1,155 @@
+.toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #1976d2;
+  color: white;
+  font-weight: 600;
+}
+
+.search-container {
+  display: flex;
+  margin: 8rem auto 1rem auto;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+}
+
+input,
+select {
+  margin: auto 0.5rem;
+  padding: 0.8rem;
+  border: 0.1rem solid #ccc;
+  border-radius: 0.4rem;
+  font-size: 1rem;
+  width: 15rem;
+}
+
+input,
+select:focus {
+  outline: none;
+  border-color: #1976d2;
+}
+
+h4 {
+  margin: auto 0.5rem;
+}
+
+.title {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem;
+}
+
+.card {
+  margin: 2rem 3rem;
+}
+
+.card h2 {
+  margin: 1.5rem 0;
+}
+
+.grid-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  column-gap: 5%;
+  row-gap: 2rem;
+}
+
+.product-card {
+  width: 80%;
+  border: 0.1rem solid #ccc;
+  border-radius: 2%;
+  padding: 1rem;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  border-radius: 3%;
+}
+
+.product-title {
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.product-price {
+  color: green;
+  margin-top: 0.5rem;
+}
+
+.add-to-cart-button {
+  background-color: #1976d2;
+  color: white;
+  padding: 1rem 1.4rem;
+  border: none;
+  border-radius: 50%;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+.price-add {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-icon {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-icon i {
+  font-size: 2rem;
+}
+
+.item-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: red;
+  color: white;
+  font-size: 16px;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .search-container {
+      flex-direction: column;
+      input,
+      select {
+          margin: 0.5rem 0.5rem;
+          padding: 8px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          font-size: 1rem;
+          width: 15rem;
+      }
+  }
+}
+
+@media (max-width: 950px) {
+  .search-container {
+      flex-direction: column;
+      input,
+      select {
+          margin: 0.5rem 0.5rem;
+          padding: 8px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          font-size: 1rem;
+          width: 15rem;
+      }
+  }
+}
