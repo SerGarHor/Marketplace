@@ -2,11 +2,6 @@
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
 
 .toolbar {
     position: sticky;
@@ -161,7 +156,7 @@ body {
     font-weight: 600;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .toolbar {
         height: 4rem;
     }
@@ -180,19 +175,31 @@ body {
     }
 
     .products {
+        display: flex;
         flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .products img {
-        width: 50%;
-    }
-
-    .products div {
-        width: 100%;
     }
 
     .products button {
         width: 100%;
     }
+}
+
+@media (max-width: 1080px) {
+    .toolbar {
+        height: 4rem;
+    }
+
+    .empty-cart {
+        margin-top: 10rem;
+    }
+
+    .list-card {
+        margin: 1rem;
+        width: calc(100% - 2rem);
+    }
+
+    .value-card {
+        width: calc(100% - 2rem);
+    }
+
 }
