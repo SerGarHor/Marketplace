@@ -25,6 +25,9 @@ export class HomeComponent implements OnInit {
     public service: ProductsService,
     private router: Router) {
       this.data = this.router.getCurrentNavigation()?.extras.state
+      if(this.data != undefined){
+        this.countProducts = this.service.sumData(this.data.data)
+      }
      }
 
   ngOnInit(): void {
@@ -52,7 +55,6 @@ export class HomeComponent implements OnInit {
     })
     if(this.data != '' && this.data != undefined){
       this.arrayProducts = this.data.data
-      this.countProducts = this.data.data.length
     }
   }
 

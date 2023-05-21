@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as XLSX from 'xlsx';
+import { ProductsService } from '../service/products.service';
 
 @Component({
   selector: 'app-shoppingcart',
@@ -14,11 +15,17 @@ export class ShoppingcartComponent implements OnInit {
   valueTotal: number = 0
   productTotal: number = 0
   isLoadData = false
-  constructor(private router: Router) { 
+  constructor(
+    private router: Router,
+    public service: ProductsService
+    ) { 
      this.data = this.router.getCurrentNavigation()?.extras.state
-     this.dataNavigate = this.data.data
+     if(this.data == undefined){
+      this.isLoadData = false
+     } else{
+       this.dataNavigate = this.data.data
+     }
   }
-
   ngOnInit(): void {
     this.loadData()
   }
@@ -29,21 +36,13 @@ export class ShoppingcartComponent implements OnInit {
       this.isLoadData = false
     } else {
       this.isLoadData = true
-      this.valueTotal = this.sumData()
+      this.valueTotal = this.service.sumData(this.dataNavigate)
       this.productTotal = this.cantData()
     }
   }
   
   changeImg(data: any){
     return  data.images != undefined ? data.images[0] : data.image;
-  }
-
-  sumData(){
-    let sum = 0
-    this.dataNavigate.forEach((data: any) => {
-      sum += data.price
-    })
-    return  sum
   }
 
   cantData(){
@@ -107,6 +106,7 @@ export class ShoppingcartComponent implements OnInit {
   }
 
   exit(){
-    this.router.navigate(['/home'],{ state: { data: this.dataNavigate } });
+    let data: any = this.dataNavigate != '' && this.dataNavigate != undefined ? { state: { data: this.dataNavigate } } : ''
+    this.router.navigate(['/home'], data);
   }
 }

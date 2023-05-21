@@ -21,4 +21,12 @@ export class ProductsService {
 
   }
 
+  sumData(data: any){
+    let sum = 0
+    data.forEach((value: any) => {
+      sum += value.cant
+    })
+    return  sum
+  }
+
 }
