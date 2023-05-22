@@ -5,9 +5,9 @@ import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 
 let routes: Routes = []
   routes = [
-    { path: '', redirectTo: 'https://sergarhor.github.io/Marketplace/home', pathMatch: 'full' },
-    { path: 'https://sergarhor.github.io/Marketplace/home', component: HomeComponent },
-    { path: 'https://sergarhor.github.io/Marketplace/home/shoppingcart', component: ShoppingcartComponent },
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: 'home', component: HomeComponent },
+    { path: 'home/shoppingcart', component: ShoppingcartComponent },
   ];
 
 @NgModule({
